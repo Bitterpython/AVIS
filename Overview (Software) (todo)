@@ -1,14 +1,23 @@
 AVIS/
 │
-|── main.py
-|── detector.py          
-|── servo.py             
-|── water.py             
-|── webserver.py         
-|── config.py            
+├── main.py                 # Startet alles
+├── config.json             # Einstellungen
+├── requirements.txt
 │
-|── models/
-│   |── yolov8n.pt
+├── core/
+│   ├── camera.py           # Kamera
+│   ├── detector.py         # YOLO
+│   ├── tracker.py          # Verfolgt Ziel
+│   ├── command_manager.py  # Entscheidet, wer steuert
+│   ├── servo.py            # Servo
+│   ├── water.py            # Pumpe
+│   ├── logger.py           # Fotos & Logbuch
+│   └── config.py           # Lädt config.json
 │
-|── static/
-    |── ...
+├── web/
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   └── images/
+│
+└── photos/
