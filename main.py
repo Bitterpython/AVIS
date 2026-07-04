@@ -18,8 +18,6 @@ bird_counter = 0
 DETECTION_THRESHOLD = 8   # wie viele Frames am Stück Vogel da sein muss
 
 alarm_triggered = False
-cooldown = 0
-COOLDOWN_FRAMES = 0
 
 # ----------------------------
 # Loop
@@ -75,16 +73,12 @@ while True:
 
     stable_bird = bird_counter >= DETECTION_THRESHOLD
 
-    if cooldown > 0:
-        cooldown -= 1
-
     # ----------------------------
     # ALARM LOGIK
     # ----------------------------
 
-    if stable_bird and cooldown == 0: #and not alarm_triggered
+    if stable_bird: #and not alarm_triggered
         alarm_triggered = True
-        cooldown = COOLDOWN_FRAMES
 
         print("VOGEL STABIL ERKANNT -> WASSER / PIEP WÜRDE AUSLÖSEN")
 
