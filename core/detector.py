@@ -21,6 +21,8 @@ class BirdDetector:
             bird = {
                 "x": 100,
                 "y": 100,
+                "width": 100,
+                "height": 100,
                 "confidence": 0.91
             }
             
@@ -32,9 +34,14 @@ class BirdDetector:
 
                 cx = (x1 + x2) // 2
                 cy = (y1 + y2) // 2
+                
+                width = x2 - x1
+                height = y2 - y1
 
                 bird["x"] = cx
                 bird["y"] = cy
+                bird["width"] = width
+                bird["height"] = height
                 bird["confidence"] = conf
                 
                 birds.append(bird)
