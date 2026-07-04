@@ -4,7 +4,7 @@ import cv2
 class BirdDetector:
     def __init__(self):
         print("loaded model")
-        self.model = YOLO("yolov8n.pt")
+        self.model = YOLO("models/yolov8n.pt")
         
         self.BIRD_CLASS_ID = 14
 
