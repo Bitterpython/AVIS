@@ -1,0 +1,15 @@
+Turret
+-> Case
+  -> PiCam Module V2
+  -> BambuLab Electric Water Spray Kit 02 Pump
+-> 2 Servos
+-> 3D printed holding structure (PETG-HF)
+
+Base
+-> IP67 ABS case
+  -> Servo Driver
+  -> PSU
+  -> Cable management 
+  -> Misc.
+  -> Aluminum case with contact to air through hole in ABS case
+    -> RaspberryPi 5
