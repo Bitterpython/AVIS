@@ -1,0 +1,14 @@
+AVIS/
+│
+|── main.py
+|── detector.py          
+|── servo.py             
+|── water.py             
+|── webserver.py         
+|── config.py            
+│
+|── models/
+│   |── yolov8n.pt
+│
+|── static/
+    |── ...
