@@ -19,7 +19,7 @@ while True:
         break
 
     frame = cv2.resize(frame, (detector.resolution["x"], detector.resolution["y"]))
-
+    
     frame_size = detector.resolution
 
     birds = detector.detect(frame)
@@ -28,6 +28,7 @@ while True:
     
     visuals.draw_birds(frame, birds)
     visuals.draw_target(frame, best_bird)
+    visuals.draw_center(frame, frame_size)
     
     print(best_bird)
     
