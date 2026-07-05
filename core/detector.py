@@ -3,13 +3,17 @@ import cv2
 
 class BirdDetector:
     def __init__(self):
-        print("loaded model")
         self.model = YOLO("models/yolov8n.pt")
         
         self.BIRD_CLASS_ID = 14
-
+        
+        self.resolution = {
+            "x": 900,
+            "y": 500
+        }
+        
     def detect(self, frame):
-        frame = cv2.resize(frame, (900, 500))
+        frame = cv2.resize(frame, (self.resolution["x"], self.resolution["y"]))
 
         frame_proc = cv2.GaussianBlur(frame, (3, 3), 0)
 
@@ -23,7 +27,8 @@ class BirdDetector:
                 "y": 100,
                 "width": 100,
                 "height": 100,
-                "confidence": 0.91
+                "confidence": 0.91,
+                "distance": 100
             }
             
             cls = int(box.cls[0])
