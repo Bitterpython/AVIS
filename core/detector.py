@@ -13,8 +13,6 @@ class BirdDetector:
         }
         
     def detect(self, frame):
-        frame = cv2.resize(frame, (self.resolution["x"], self.resolution["y"]))
-
         frame_proc = cv2.GaussianBlur(frame, (3, 3), 0)
 
         results = self.model(frame_proc)[0]
