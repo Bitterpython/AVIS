@@ -22,5 +22,8 @@ class Visuals:
     
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
     
-    def draw_center(self, frame):
+    def draw_center(self, frame, frame_size):
+        cx = frame_size["x"] // 2
+        cy = frame_size["y"] // 2
+        cv2.circle(frame, (cx, cy), 5, (255, 0, 0), -1)
         return
