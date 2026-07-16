@@ -3,7 +3,7 @@ import cv2
 
 class BirdDetector:
     def __init__(self):
-        self.model = YOLO("models/yolov8n.pt")
+        self.model = YOLO("models/yolov8n_ncnn_model")
         
         self.BIRD_CLASS_ID = 14
         
