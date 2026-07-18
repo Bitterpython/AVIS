@@ -4,7 +4,7 @@ import cv2
 class BirdDetector:
     def __init__(self):
         self.model = YOLO("models/yolov8n_ncnn_model")
-        
+        #self.model = YOLO("models/yolov8n.pt")
         self.BIRD_CLASS_ID = 14
         
         self.resolution = {
@@ -15,7 +15,7 @@ class BirdDetector:
     def detect(self, frame):
         frame_proc = cv2.GaussianBlur(frame, (3, 3), 0)
 
-        results = self.model(frame_proc)[0]
+        results = self.model.predict(frame_proc, conf=0.10)[0]
 
         birds = []
         

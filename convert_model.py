@@ -4,4 +4,4 @@ from ultralytics import YOLO
 model = YOLO("models/yolov8n.pt")
 
 # Export the model to NCNN format
-model.export(format="ncnn", imgsz=640)  # creates 'models/yolov8n_ncnn_model'
+model.export(format="ncnn", imgsz=1440)  # creates 'models/yolov8n_ncnn_model'
