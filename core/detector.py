@@ -37,7 +37,7 @@ class BirdDetector:
 
         frame_proc = cv2.GaussianBlur(frame, (3, 3), 0)
 
-        results = self.model(frame_proc)[0]
+        results = self.model.predict(frame_proc, conf=0.10)[0]
 
         birds = []
 
