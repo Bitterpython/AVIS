@@ -1,7 +1,9 @@
 from core.detector import BirdDetector
 from core.tracker import Tracker
-from core.camera import Camera
+#from core.camera import Camera
+from core.test_cam import Camera
 from core.visuals import Visuals
+from core.servo import Servo
 
 import cv2
 
@@ -11,6 +13,9 @@ camera = Camera()
 detector = BirdDetector()
 tracker = Tracker()
 visuals = Visuals()
+servo = Servo()
+
+frame_count = 0
 
 while True:
     frame = camera.get_frame()
@@ -22,7 +27,8 @@ while True:
     
     frame_size = detector.resolution
 
-    birds = detector.detect(frame)
+    if frame_count % 30 == 0:
+        birds = detector.detect(frame)
 
     best_bird = tracker.track(birds, frame_size)
     
@@ -30,7 +36,12 @@ while True:
     visuals.draw_target(frame, best_bird)
     visuals.draw_center(frame, frame_size)
     
+    if best_bird is not None:
+        angles = servo.calculateAngles(detector.resolution["x"], detector.resolution["y"], best_bird)
+        print(angles)
+    
     print(best_bird)
+    frame_count += 1
     
     cv2.imshow("vogelerkennung", frame)
     
