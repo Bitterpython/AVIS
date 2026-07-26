@@ -13,7 +13,6 @@ DEFAULT_ANGLE = 90.0
 
 
 def _init_pwm(address: int = 0x40, busnum: int | None = 1) -> None:
-    """Lazily initialize the PCA9685 controller when needed."""
     global pwm
     if pwm is not None:
         return
@@ -24,7 +23,7 @@ def _init_pwm(address: int = 0x40, busnum: int | None = 1) -> None:
         pwm = Adafruit_PCA9685.PCA9685(address=address)
     pwm.set_pwm_freq(PWM_FREQUENCY)
 
-# Track the last commanded angle for each servo channel.
+
 _servo_positions = {
     PAN_CHANNEL: DEFAULT_ANGLE,
     TILT_CHANNEL: DEFAULT_ANGLE,
