@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+*.pt
+*.onnx
+*.bin
+
+
+.venv/
+venv/
+.vscode/
