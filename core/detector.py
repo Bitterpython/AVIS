@@ -3,13 +3,13 @@ import cv2
 
 class BirdDetector:
     def __init__(self):
-        self.model = YOLO("models/best.pt")
+        self.model = YOLO("models/best_ncnn_model")
         self.resolution = {"x": 900, "y": 500}
-        self.confidence_threshold = 0.6
+        self.confidence_threshold = 0.3
         self.bird_class_ids = self._resolve_bird_class_ids()
 
     def _initialize(self):
-        self.confidence_threshold = 0.6
+        self.confidence_threshold = 0.3
         self.bird_class_ids = self._resolve_bird_class_ids()
 
     def _resolve_bird_class_ids(self):
