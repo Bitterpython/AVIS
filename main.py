@@ -1,12 +1,13 @@
 from core.detector import BirdDetector
 from core.tracker import Tracker
-#from core.camera import Camera
-from core.test_cam import Camera
+from core.camera import Camera
+#from core.test_cam import Camera
 from core.visuals import Visuals
 from core.servo import Servo
-#from core.hardware_manager import Hardware
+from core.hardware_manager import Hardware
 
 import cv2
+import time
 
 # frame = cv2.imread("test.png")
 
@@ -15,11 +16,14 @@ detector = BirdDetector()
 tracker = Tracker()
 visuals = Visuals()
 servo = Servo()
-#hardware = Hardware()
+hardware = Hardware()
 
 frame_count = 0
 
 while True:
+    #hardware.reset_servos()  # Reset servos to default positions at the start of each loop iteration
+    #time.sleep(50)
+
     frame = camera.get_frame()
 
     if frame is None:
@@ -40,10 +44,11 @@ while True:
     
     if best_bird is not None:
         angles = servo.calculateAngles(detector.resolution["x"], detector.resolution["y"], best_bird)
-        #hardware.move_servo("pan", angles["pan"])
-        #hardware.move_servo("tilt", angles["tilt"])
+        hardware.move_servo("pan", angles["pan"])
+        hardware.move_servo("tilt", angles["tilt"])
         #hardware.shoot()
         print(angles)
+        #break
         
     
     print(best_bird)

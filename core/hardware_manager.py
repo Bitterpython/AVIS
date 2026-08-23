@@ -15,6 +15,13 @@ class Hardware:
             self.TILT_CHANNEL: self.DEFAULT_ANGLE,
         }
 
+    def reset_servos(self):
+        """Reset both pan and tilt servos to their default angles."""
+        self.move_servo("pan", 45)
+        self.move_servo("tilt", 45)
+        self.move_servo("pan", self.DEFAULT_ANGLE)
+        self.move_servo("tilt", self.DEFAULT_ANGLE)
+    
     def _init_pwm(self, address: int = 0x40, busnum: int | None = 1) -> None:
         if self.pwm is not None:
             return
@@ -75,7 +82,6 @@ class Hardware:
         
     def shoot(self):
         print("shooting bird")
-        pass
 
 if __name__ == "__main__":
     # Test the servos locally with hardware connected.
@@ -89,7 +95,7 @@ if __name__ == "__main__":
     time.sleep(1)
 
     print("Moving pan to 160 degrees")
-    hardware.move_servo("pan", 160)
+    hardware.move_servo("pan", 90)
     time.sleep(1)
 
     print("Moving tilt to 10 degrees")
@@ -97,7 +103,7 @@ if __name__ == "__main__":
     time.sleep(1)
 
     print("Moving tilt to 45 degrees")
-    hardware.move_servo("tilt", 45)
+    hardware.move_servo("tilt", 90)
     time.sleep(1)
 
     print("Hardware test finished.")

@@ -10,12 +10,12 @@ class BirdDetector:
 
     def __init__(self):
         # We need the underlying YOLO instance to fetch class names
-        self.raw_yolo_model = YOLO("models/yolo11m_ncnn_model")
+        self.raw_yolo_model = YOLO("models/yolo11m_ncnn_model")  # Load the NCNN model for class name resolution
 
         # 2. Wrap the YOLO model into a SAHI AutoDetectionModel instance
         self.model = AutoDetectionModel.from_pretrained(
             model_type="ultralytics",
-            model_path="models/yolo11m.pt",
+            model_path="models/yolo11m_ncnn_model",  # Path to the exported NCNN model
             device="cpu",  # Forces stable floating point accuracy on Raspberry Pi 5
             confidence_threshold=0.10,  # SAHI-level pre-filter threshold
         )
