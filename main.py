@@ -4,7 +4,7 @@ from core.tracker import Tracker
 from core.test_cam import Camera
 from core.visuals import Visuals
 from core.servo import Servo
-from core.hardware_manager import Hardware
+#from core.hardware_manager import Hardware
 
 import cv2
 
@@ -15,7 +15,7 @@ detector = BirdDetector()
 tracker = Tracker()
 visuals = Visuals()
 servo = Servo()
-hardware = Hardware()
+#hardware = Hardware()
 
 frame_count = 0
 
@@ -40,9 +40,9 @@ while True:
     
     if best_bird is not None:
         angles = servo.calculateAngles(detector.resolution["x"], detector.resolution["y"], best_bird)
-        hardware.move_servo("pan", angles["pan"])
-        hardware.move_servo("tilt", angles["tilt"])
-        hardware.shoot()
+        #hardware.move_servo("pan", angles["pan"])
+        #hardware.move_servo("tilt", angles["tilt"])
+        #hardware.shoot()
         print(angles)
         
     

@@ -10,7 +10,7 @@ class BirdDetector:
 
     def __init__(self):
         # We need the underlying YOLO instance to fetch class names
-        self.raw_yolo_model = YOLO("models/yolo11m.pt")
+        self.raw_yolo_model = YOLO("models/yolo11m_ncnn_model")
 
         # 2. Wrap the YOLO model into a SAHI AutoDetectionModel instance
         self.model = AutoDetectionModel.from_pretrained(

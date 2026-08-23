@@ -74,6 +74,7 @@ class Hardware:
         self._servo_positions[channel] = float(target_angle)
         
     def shoot(self):
+        print("shooting bird")
         pass
 
 if __name__ == "__main__":
