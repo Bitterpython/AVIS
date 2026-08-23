@@ -27,13 +27,13 @@ class Camera:
             frame = self._picam.capture_array()
             if frame is None:
                 return None
-            return cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            return cv2.flip(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR), -1)
 
         if self._cap is not None:
             ret, frame = self._cap.read()
             if not ret:
                 return None
-            return frame
+            return cv2.flip(frame, -1)
 
         return None
 
