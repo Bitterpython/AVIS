@@ -42,7 +42,7 @@ while True:
     visuals.draw_target(frame, best_bird)
     visuals.draw_center(frame, frame_size)
     
-    if best_bird is not None:
+    if best_bird:
         angles = servo.calculateAngles(detector.resolution["x"], detector.resolution["y"], best_bird)
         hardware.move_servo("pan", angles["pan"])
         hardware.move_servo("tilt", angles["tilt"])
