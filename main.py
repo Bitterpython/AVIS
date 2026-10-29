@@ -54,10 +54,10 @@ while True:
     print(best_bird)
     frame_count += 1
     
-    cv2.imshow("vogelerkennung", frame)
+    #cv2.imshow("vogelerkennung", frame)
     
     if cv2.waitKey(1) & 0xFF == 27:
         break
 
 camera.release()
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
